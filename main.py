@@ -10,7 +10,8 @@ def click(event):
             canva.after(50)
 
 def move_ball1():
-    canva.move(ball1,5,0)
+    step = random.randint(1,20)
+    canva.move(ball1,step,0)
     if canva.coords(ball1)[2]<500:
         canva.after(50,move_ball1)
 
