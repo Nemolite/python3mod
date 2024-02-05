@@ -9,6 +9,12 @@ def click(event):
             canva.update()
             canva.after(50)
 
+def move_ball1():
+    canva.move(ball1,5,0)
+    if canva.coords(ball1)[2]<500:
+        canva.after(50,move_ball1)
+
+
 canva = Canvas(width=500,height=500)
 canva.pack()
 
@@ -22,7 +28,7 @@ canva.create_line(0,50,500,50)
 canva.create_text(250,150,text='Нажми, для начала праздника',tags='start')
 canva.tag_bind('start','<Button-1>',click)
 
-canva.create_oval(350,350,380,380,fill="red")
-
+ball1 = canva.create_oval(350,350,380,380,fill="red")
+move_ball1()
 
 tk.mainloop()
